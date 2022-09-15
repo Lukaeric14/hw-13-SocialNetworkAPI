@@ -11,4 +11,13 @@ module.exports = {
       res.status(500).send(err.message);
     }
   },
+  createThought: async (req, res) => {
+    try {
+      const thought = await Thought.create(req.body);
+      return res.json(thought);
+    } catch (err) {
+      console.log("Error creating thought", err);
+      res.status(500).send(err.message);
+    }
+  },
 };
