@@ -9,6 +9,7 @@ router
 router
   .route("/:id")
   .get(thoughtController.getThoughtById)
-  .put(thoughtController.updateThought);
+  .put(thoughtController.updateThought)
+  .delete(thoughtController.deleteThought);
 
 module.exports = router;
