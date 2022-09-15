@@ -11,6 +11,18 @@ module.exports = {
       res.status(500).send(err.message);
     }
   },
+  getThoughtById: async (req, res) => {
+    try {
+      const thought = await Thought.findOne({ _id: req.params.id });
+      if (!thought) {
+        return res.status(404).send("No thought found");
+      }
+      return res.json(thought);
+    } catch (err) {
+      console.log("Error updating thought", err);
+      res.status(500).send(err.message);
+    }
+  },
   createThought: async (req, res) => {
     try {
       const thought = await Thought.create(req.body);

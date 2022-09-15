@@ -6,4 +6,6 @@ router
   .get(thoughtController.getAllThoughts)
   .post(thoughtController.createThought);
 
+router.route("/:id").get(thoughtController.getThoughtById);
+
 module.exports = router;
