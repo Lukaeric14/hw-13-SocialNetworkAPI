@@ -1,5 +1,4 @@
 const Thoughts = require("../models/Thought");
-const { findOneAndUpdate, findOneAndDelete } = require("../models/User");
 const User = require("../models/User");
 
 module.exports = {
