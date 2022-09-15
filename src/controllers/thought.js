@@ -60,4 +60,20 @@ module.exports = {
       res.status(500).send(err.message);
     }
   },
+  addReaction: async (req, res) => {
+    try {
+      const thought = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $addToSet: { reactions: req.body } },
+        { new: true }
+      );
+      if (!thought) {
+        return res.status(404).send("No thought found");
+      }
+      return res.json(thought);
+    } catch (err) {
+      console.log("Error adding reaction", err);
+      res.status(500).send(err.message);
+    }
+  },
 };
